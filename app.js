@@ -172,7 +172,7 @@ function getDateInAllFormats(date) {
   var resultDiv = document.querySelector("#result");
 
   submitBtn.addEventListener("click", clickHandler);
-  
+
   function clickHandler(e) {
     var bdayString = bdayInput.value;
   
@@ -187,6 +187,32 @@ function getDateInAllFormats(date) {
         month: Number(mm),
         year: Number(yyyy),
       };
+
+      var dateStr = convertDateToString(date);
+      var list = checkPalindromeForAllDateFormats(dateStr);
+      var isPalindrome = false;
+  
+      for (let i = 0; i < list.length; i++) {
+        if (list[i]) {
+          isPalindrome = true;
+          break;
+        }
+      }
+  
+      if (!isPalindrome) {
+        const [ctr1, nextDate] = getNextPalindromeDate(date);
+        const [ctr2, prevDate] = getPreviousPalindromeDate(date);
+  
+        if (ctr1 > ctr2) {
+          resultDiv.innerText = `The nearest palindrome date is ${prevDate.day}-${prevDate.month}-${prevDate.year}, you missed by ${ctr2} days.`;
+        } else {
+          resultDiv.innerText = `The nearest palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year}, you missed by ${ctr1} days.`;
+        }
+      } else {
+        resultDiv.innerText = "Yay! Your birthday is palindrome! 👌👌";
+      }
+    }
+  }
 
 
   
