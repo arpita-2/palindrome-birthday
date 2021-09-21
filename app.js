@@ -4,3 +4,9 @@ function reverseString(str) {
     var reversedString = reversedListOfChar.join("");
     return reversedString;
   }
+
+  function isStringPalindrome(str) {
+    var reversedString = reverseString(str);
+    return str === reversedString;
+  }
+  
