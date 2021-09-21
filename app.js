@@ -98,4 +98,22 @@ function getDateInAllFormats(date) {
       year: year,
     };
   }
+
+  function getNextPalindromeDate(date) {
+    var nextDate = getNextDate(date);
+    var ctr = 0;
+  
+    while (1) {
+      ctr++;
+      var dateStr = convertDateToString(nextDate);
+      var resultList = checkPalindromeForAllDateFormats(dateStr);
+  
+      for (let i = 0; i < resultList.length; i++) {
+        if (resultList[i]) {
+          return [ctr, nextDate];
+        }
+      }
+      nextDate = getNextDate(nextDate);
+    }
+  }
   
