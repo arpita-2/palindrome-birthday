@@ -28,4 +28,15 @@ if (date.month < 10) {
 dateStr.year = date.year.toString();
 return dateStr;
 }
+
+function getDateInAllFormats(date) {
+    var ddmmyyyy = date.day + date.month + date.year;
+    var mmddyyyy = date.month + date.day + date.year;
+    var yyyymmdd = date.year + date.month + date.day;
+    var ddmmyy = date.day + date.month + date.year.slice(-2);
+    var mmddyy = date.month + date.day + date.year.slice(-2);
+    var yyddmm = date.year.slice(-2) + date.day + date.month;
+  
+    return [ddmmyyyy, mmddyyyy, yyyymmdd, ddmmyy, mmddyy, yyddmm];
+  }
   
