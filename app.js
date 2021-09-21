@@ -39,4 +39,16 @@ function getDateInAllFormats(date) {
   
     return [ddmmyyyy, mmddyyyy, yyyymmdd, ddmmyy, mmddyy, yyddmm];
   }
+
+  function checkPalindromeForAllDateFormats(date) {
+    var dateFormatList = getDateInAllFormats(date);
+    var palindromeList = [];
+  
+    for (var i = 0; i < dateFormatList.length; i++) {
+      var result = isStringPalindrome(dateFormatList[i]);
+      palindromeList.push(result);
+    }
+    return palindromeList;
+  }
+  
   
