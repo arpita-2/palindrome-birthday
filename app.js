@@ -167,6 +167,26 @@ function getDateInAllFormats(date) {
     }
   }
   
+  var bdayInput = document.querySelector("#bday-input");
+  var submitBtn = document.querySelector("#submit-btn");
+  var resultDiv = document.querySelector("#result");
+
+  submitBtn.addEventListener("click", clickHandler);
+  
+  function clickHandler(e) {
+    var bdayString = bdayInput.value;
+  
+    if (bdayString !== "") {
+      var date = bdayString.split("-");
+      var yyyy = date[0];
+      var mm = date[1];
+      var dd = date[2];
+  
+      var date = {
+        day: Number(dd),
+        month: Number(mm),
+        year: Number(yyyy),
+      };
 
 
   
